@@ -1,0 +1,13 @@
+/*Here will be the common styles applied for several components (for instance, nextBlock and gameField*/
+
+.tetris-block-container {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tetris-block-row {
+    display: flex;
+    justify-content: center;
+}

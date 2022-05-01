@@ -1,0 +1,16 @@
+.score-text-field {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.score-block-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.score-buttons-container {
+    display: flex;
+    justify-content: space-between;
+}
