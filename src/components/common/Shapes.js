@@ -170,48 +170,6 @@ export const shapes = [
   }
 
   /**
-   * Detects does the comparing block has the intersection with the current block (to check the availability of the next state)
-   * @param {array[][]} currentBlock
-   * @param {array[][]} comparingBlock
-   * @returns {boolean}
-   */
-  export const getIntersection = (currentBlock, comparingBlock) => {
-      let height = currentBlock.length;
-      let width = currentBlock[0].length;
-      let result = false;
-      for (let i = 0; i < height; i++) {
-          for (let j = 0; j < width; j++) {
-            if (currentBlock[i][j] !== 0 && comparingBlock[i][j] === undefined) {
-              result = true;
-              break;
-            }
-            if (currentBlock[i][j] * comparingBlock[i][j] !== 0) {
-                result = true;
-                break;
-            }
-          }
-      }
-      return result;
-  }
-
-  /**
-   * Get the part (square) of the board. Separate the length X length array from the grid from the x,y position
-   * @param {number} x
-   * @param {number} y
-   * @param {number} length
-   * @param {array[][]} grid
-   * @returns {array[][]}
-   */
-  export const getPartOfBoard = (x, y, length, grid) => {
-    let result = [];
-    let endPoint = y + length;
-    for (let i = y; i < endPoint; i++) {
-        result.push(grid[i].slice(x, x + length));
-    }
-    return result;
-  }
-
-  /**
    * Check if the moving to the target part of the grid is possible
    * @param {int} shapeIndex Index of the shape
    * @param {int} rotationIndex Index of the rotation
