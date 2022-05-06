@@ -15,6 +15,28 @@ export default function GameField() {
   const { grid, speed, isRunning, gameOver } = useSelector( state => state.game );
   const dispatch = useDispatch();
 
+  /** Event handler for keyboard arrows */
+  useEffect( () => {
+    const listener = (e) => {
+      if (e.keyCode == '38') {
+        dispatch( {type: ROTATE} );
+      }
+      else if (e.keyCode == '40') {
+        dispatch( {type: MOVE_DOWN_FAST} );
+      }
+      else if (e.keyCode == '37') {
+        dispatch( {type: MOVE_LEFT} );
+      }
+      else if (e.keyCode == '39') {
+        dispatch( {type: MOVE_RIGHT} );
+      }
+    };
+    document.addEventListener('keydown', listener);
+    return () => {
+      document.removeEventListener('keydown', listener);
+    }
+  }, []);
+
   useEffect( () => {
     if (gameOver || !isRunning) {
       clearInterval(intervalId);
